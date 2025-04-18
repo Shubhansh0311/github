@@ -27,13 +27,14 @@ const app = express();
 dotenv.config();
 app.use(express.json());
 app.use(cors())
-app.listen(808,async()=>{
-await dbConnect()
+dbConnect()
+// app.listen(808,async()=>{
+// await 
 
-    console.log("server is running on port 808")
+//     console.log("server is running on port 808")
 
-}
-)
+// }
+// )
 
 app.get("/test", (req, res) => {    
     res.send("Hello from server")
