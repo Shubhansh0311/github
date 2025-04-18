@@ -39,34 +39,34 @@ dbConnect()
 app.get("/test", (req, res) => {    
     res.send("Hello from server")
 })
-// authentication
-app.use("/auth",authRouters.authRouter);
+// // authentication
+// app.use("/auth",authRouters.authRouter);
 
-// users
-app.use("/api/users", userRouters.userRouter);
+// // users
+// app.use("/api/users", userRouters.userRouter);
 
-// admin products
-app.use("/api/admin/products", adminProductRouters.adminProductRouter);
+// // admin products
+// app.use("/api/admin/products", adminProductRouters.adminProductRouter);
 
-// admin orders
-app.use("/api/admin/orders", adminOrderRouters.adminOrderRouter)
+// // admin orders
+// app.use("/api/admin/orders", adminOrderRouters.adminOrderRouter)
 
-// products
-app.use("/api/products",productRouters.productRouter);
+// // products
+// app.use("/api/products",productRouters.productRouter);
 
-// cart
-app.use("/api/cart", cartRouters.cartRouter);
+// // cart
+// app.use("/api/cart", cartRouters.cartRouter);
 
-// cart items
-app.use("/api/cart_items", cartItemRoutes.cartItemRouter);
+// // cart items
+// app.use("/api/cart_items", cartItemRoutes.cartItemRouter);
 
-// review
-app.use("/api/review", reviewRouters.reviewRouter);
+// // review
+// app.use("/api/review", reviewRouters.reviewRouter);
 
-// rating
-app.use("/api/rating", ratingRouters.ratingRouter);
+// // rating
+// app.use("/api/rating", ratingRouters.ratingRouter);
 
-// orders
-app.use("/api/orders", orderRouters.orderRouter);
+// // orders
+// app.use("/api/orders", orderRouters.orderRouter);
 
-export default app;
+// export default app;
