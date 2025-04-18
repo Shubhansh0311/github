@@ -15,18 +15,19 @@ import dbConnect from "./config/db.js";
 
 const app = express();
 
-// const corsOptions = {
-//     origin: 'https://ecommerce-eta-sandy.vercel.app', // Your React app URL
-//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Include OPTIONS
-//     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-//     credentials: true, // Include cookies in requests if needed
-// };
+const corsOptions = {
+    origin: 'https://ecommerce-eta-sandy.vercel.app', // Your React app URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Include OPTIONS
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    credentials: true, // Include cookies in requests if needed
+};
 
-// app.options('*', cors(corsOptions)); // Handle preflight requests
-// app.use(cors(corsOptions));
+// Handle preflight requests
+app.options('*', cors(corsOptions)); 
+app.use(cors(corsOptions)); // Enable CORS with options
 // dotenv.config();
 app.use(express.json());
-app.use(cors())
+// app.use(cors())
 dbConnect()
 
 // "working fine"
@@ -44,10 +45,10 @@ app.use("/api/products",productRouters.productRouter);
 
 
 // // authentication
-// app.use("/auth",authRouters.authRouter);
+app.use("/auth",authRouters.authRouter);
 
 // // users
-// app.use("/api/users", userRouters.userRouter);
+app.use("/api/users", userRouters.userRouter);
 
 // // admin products
 // app.use("/api/admin/products", adminProductRouters.adminProductRouter);
