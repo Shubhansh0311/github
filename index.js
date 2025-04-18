@@ -5,7 +5,7 @@ import productRouters from "./routes/product.routes.js";
 import authRouters from "./routes/auth.routes.js";
 import userRouters from "./routes/user.routes.js";
 import cartRouters from "./routes/cart.routes.js";
-// import cartItemRoutes from "./routes/cartItem.routes.js";
+import cartItemRoutes from "./routes/cartItem.routes.js";
 // import reviewRouters from "./routes/review.routes.js";
 // import ratingRouters from "./routes/rating.routes.js";
 // import orderRouters from "./routes/order.routes.js";
@@ -16,7 +16,7 @@ import dbConnect from "./config/db.js";
 const app = express();
 
 const corsOptions = {
-    origin: 'https://ecommerce2025-frontend.vercel.app', // Your React app URL
+    origin: 'https://eommerce-kappa.vercel.app/', // Your React app URL
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Include OPTIONS
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
     credentials: true, // Include cookies in requests if needed
@@ -61,7 +61,7 @@ app.use("/api/users", userRouters.userRouter);
 app.use("/api/cart", cartRouters.cartRouter);
 
 // // cart items
-// app.use("/api/cart_items", cartItemRoutes.cartItemRouter);
+app.use("/api/cart_items", cartItemRoutes.cartItemRouter);
 
 // // review
 // app.use("/api/review", reviewRouters.reviewRouter);
@@ -72,4 +72,7 @@ app.use("/api/cart", cartRouters.cartRouter);
 // // orders
 // app.use("/api/orders", orderRouters.orderRouter);
 
+// app.listen(808, async () => {
+//  console.log("server is running on port 808")
+// })
 export default app;
