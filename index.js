@@ -16,7 +16,7 @@ import dbConnect from "./config/db.js";
 const app = express();
 
 const corsOptions = {
-    origin: 'https://eommerce-kappa.vercel.app/', // Your React app URL
+    origin: 'https://eommerce-kappa.vercel.app', // Your React app URL
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Include OPTIONS
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
     credentials: true, // Include cookies in requests if needed
