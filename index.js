@@ -1,16 +1,16 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-import authRouters from "./routes/auth.routes.js";
-import userRouters from "./routes/user.routes.js";
-import productRouters from "./routes/product.routes.js";
-import cartRouters from "./routes/cart.routes.js";
-import cartItemRoutes from "./routes/cartItem.routes.js";
-import reviewRouters from "./routes/review.routes.js";
-import ratingRouters from "./routes/rating.routes.js";
-import orderRouters from "./routes/order.routes.js";
-import adminOrderRouters from "./routes/adminOrder.routes.js";
-import adminProductRouters from "./routes/adminProduct.routes.js";
+// import dotenv from "dotenv";
+// import authRouters from "./routes/auth.routes.js";
+// import userRouters from "./routes/user.routes.js";
+// import productRouters from "./routes/product.routes.js";
+// import cartRouters from "./routes/cart.routes.js";
+// import cartItemRoutes from "./routes/cartItem.routes.js";
+// import reviewRouters from "./routes/review.routes.js";
+// import ratingRouters from "./routes/rating.routes.js";
+// import orderRouters from "./routes/order.routes.js";
+// import adminOrderRouters from "./routes/adminOrder.routes.js";
+// import adminProductRouters from "./routes/adminProduct.routes.js";
 import dbConnect from "./config/db.js";
 
 const app = express();
@@ -24,7 +24,7 @@ const app = express();
 
 // app.options('*', cors(corsOptions)); // Handle preflight requests
 // app.use(cors(corsOptions));
-dotenv.config();
+// dotenv.config();
 app.use(express.json());
 app.use(cors())
 dbConnect()
