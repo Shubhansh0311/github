@@ -16,7 +16,7 @@ import dbConnect from "./config/db.js";
 const app = express();
 
 const corsOptions = {
-    origin: 'https://ecommerce-eta-sandy.vercel.app', // Your React app URL
+    origin: 'https://ecommerce2025-frontend.vercel.app', // Your React app URL
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Include OPTIONS
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
     credentials: true, // Include cookies in requests if needed
