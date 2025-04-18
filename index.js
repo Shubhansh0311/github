@@ -4,7 +4,7 @@ import productRouters from "./routes/product.routes.js";
 // import dotenv from "dotenv";
 // import authRouters from "./routes/auth.routes.js";
 // import userRouters from "./routes/user.routes.js";
-// import cartRouters from "./routes/cart.routes.js";
+import cartRouters from "./routes/cart.routes.js";
 // import cartItemRoutes from "./routes/cartItem.routes.js";
 // import reviewRouters from "./routes/review.routes.js";
 // import ratingRouters from "./routes/rating.routes.js";
@@ -57,7 +57,7 @@ app.use("/api/products",productRouters.productRouter);
 
 
 // // cart
-// app.use("/api/cart", cartRouters.cartRouter);
+app.use("/api/cart", cartRouters.cartRouter);
 
 // // cart items
 // app.use("/api/cart_items", cartItemRoutes.cartItemRouter);
