@@ -3,7 +3,7 @@ import cors from "cors";
 // import dotenv from "dotenv";
 // import authRouters from "./routes/auth.routes.js";
 // import userRouters from "./routes/user.routes.js";
-// import productRouters from "./routes/product.routes.js";
+import productRouters from "./routes/product.routes.js";
 // import cartRouters from "./routes/cart.routes.js";
 // import cartItemRoutes from "./routes/cartItem.routes.js";
 // import reviewRouters from "./routes/review.routes.js";
@@ -52,7 +52,7 @@ app.get("/test", (req, res) => {
 // app.use("/api/admin/orders", adminOrderRouters.adminOrderRouter)
 
 // // products
-// app.use("/api/products",productRouters.productRouter);
+app.use("/api/products",productRouters.productRouter);
 
 // // cart
 // app.use("/api/cart", cartRouters.cartRouter);
