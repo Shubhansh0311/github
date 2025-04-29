@@ -11,7 +11,7 @@ const getUserProfile=async(req,res)=>{
     if(!jwt){
         return res.status(404).send({error:"token not found "})
     }
-    const user =await userServices.getUserProfileByToken(jwt)
+    const user =await (await userServices.getUserProfileByToken(jwt)).populate("address")
 // console.log(user);
 
     
@@ -23,7 +23,7 @@ const getUserProfile=async(req,res)=>{
 
 const getAllUsers=async(req,res)=>{
     try {
-        const users  =await userServices.getAllUsers()
+        const users  =await userServices.getAllUsers().populate("address")
         return res.status(200).send(users)
     } catch (error) {
         res.status(500).send({error:error.message})
