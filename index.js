@@ -25,9 +25,9 @@ const corsOptions = {
 // Handle preflight requests
 app.options('*', cors(corsOptions)); 
 app.use(cors(corsOptions)); // Enable CORS with options
-dotenv.config();
+// dotenv.config();
 app.use(express.json());
-app.use(cors())
+// app.use(cors())
 dbConnect()
 
 // "working fine"
@@ -51,10 +51,10 @@ app.use("/auth",authRouters.authRouter);
 app.use("/api/users", userRouters.userRouter);
 
 // // admin products
-app.use("/api/admin/products", adminProductRouters.adminProductRouter);
+// app.use("/api/admin/products", adminProductRouters.adminProductRouter);
 
 // // admin orders
-app.use("/api/admin/orders", adminOrderRouters.adminOrderRouter)
+// app.use("/api/admin/orders", adminOrderRouters.adminOrderRouter)
 
 
 // cart
@@ -72,7 +72,7 @@ app.use("/api/cart_items", cartItemRoutes.cartItemRouter);
 // // orders
 app.use("/api/orders", orderRouters.orderRouter);
 
-app.listen(808, async () => {
- console.log("server is running on port 808")
-})
+// app.listen(808, async () => {
+//  console.log("server is running on port 808")
+// })
 export default app;
