@@ -12,7 +12,6 @@ const getUserProfile=async(req,res)=>{
         return res.status(404).send({error:"token not found "})
     }
     const user =await (await userServices.getUserProfileByToken(jwt)).populate("address")
-// console.log(user);
 
     
     res.status(200).send(user)

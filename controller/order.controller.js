@@ -5,21 +5,14 @@ const createOrder = async (req, res) => {
     const user=await req.user;
     
     const orderData = req.body;
-    // console.log("orderData",orderData);
-    
-    const orderCreated = await orderService.createOrder(user,orderData);
-  console.log("orderCreated",orderCreated);
-  
-    
-    return res.status(201).json({message:"order created successfully",id:orderCreated._id});
+    const createdOrder = await orderService.createOrder(user,orderData);
+    return res.status(201).json({message:"order created successfully",createdOrder});
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 }
 
 const findOrderById = async (req, res) => {
-  // console.log(req.params);
-  
   try {
     const orderId = req.params.orderId;
     const order = await orderService.findOrderById(orderId);

@@ -8,7 +8,7 @@ import cartService from "../services/cart.service.js"
 const register = async (req, res) => {
     try {
         const user = await userService.createUser(req.body);
-        // console.log(user);
+  
         
         const jwtToken = await jwtprovider.generateToken(user._id)
 
@@ -25,7 +25,7 @@ const login = async (req, res) => {
        
         
         const user = await userService.getUserByEmail(email)
-        // console.log(user);
+    
         
         if (!user) {
             return res.status(404).send({ message: "user not found with email ", email })
@@ -34,7 +34,7 @@ const login = async (req, res) => {
         
         
         const isPasswordValid = await bcrypt.compare(password, user.password)
-        // console.log(isPasswordValid);
+    
         
         if (!isPasswordValid) {
             return res.status(404).send({ message: "invalid credentials" })

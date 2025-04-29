@@ -23,10 +23,10 @@ const removeCartItem = async (req, res) => {
  
     
         const cartId =await req.params.cartId;
-        // console.log(cartId);
+      
         
         const removedCartItem = await cartitemService.removeCartItem(userId, cartId);
-        // console.log(removedCartItem);
+  
         
         return res.status(200).json({message:"cart item removed successfully",removedCartItem});
     } catch (error) {

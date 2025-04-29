@@ -7,7 +7,6 @@ const createCart = async (user) => {
     const cart = new Cart({ user });
     const cartCreated = await cart.save();
 
-    // console.log("Cart craeted successfully", cartCreated);
     
     return cartCreated;
   } catch (error) {
@@ -15,7 +14,7 @@ const createCart = async (user) => {
   }
 };
 const findUserCart = async (userId) => {
-  // console.log("cartservice",userId);
+  
   try {
     const cart = await Cart.findOne({ user: userId });
     const cartItems = await CartItems.find({ cart: cart._id }).populate(
@@ -25,7 +24,7 @@ const findUserCart = async (userId) => {
     let totalPrice = 0,
       totalDiscountedPrice = 0,
       totalItems = 0;
-      // console.log(cartItems);
+     
       
     for (let cartItem of cart.cartItems) {
       totalPrice += cartItem.price;
@@ -47,10 +46,9 @@ const addCartItem = async (userId, req) => {
   
   
   try {
-    // console.log("req", req);
-    // console.log("userId", userId);
+  
     const cart = await Cart.findOne({ user: userId }); 
-  //  console.log("cart", cart);
+ 
    
 
     const product = await Product.findById(req.productId);
@@ -88,7 +86,7 @@ const addCartItem = async (userId, req) => {
 
 
 const updateCartItem = async (userId, cartItemId, quantity) => {
-  console.log(userId, cartItemId, quantity);
+
   
   try {
     // Find the cart item by ID and ensure it belongs to the user
@@ -129,7 +127,7 @@ const deleteCartItem = async (userId, cartItemId) => {
 
     // Remove the cart item
     const items= await CartItems.deleteOne({ _id: cartItemId });
-console.log(items.length);
+
 
     // Optionally, update the cart's total price and total items
     const cart = await Cart.findOne({ user: userId });

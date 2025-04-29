@@ -2,7 +2,7 @@ import productService from "../services/product.service.js";
 
 const createProducts = async (req, res) => {    
     try {
-        // console.log("product data",req.body);
+       
         
         let productData = req.body;
         let product = await productService.createProduct(productData);
@@ -36,7 +36,7 @@ const findProductsById = async (req, res) => {
     try {
         const productId = req.params.productId;
         const product = await productService.findProductById(productId);
-    //   console.log("product",product);
+ 
       
         
         return res.status(200).json(product);
@@ -45,13 +45,12 @@ const findProductsById = async (req, res) => {
     }
 }
 const getAllProduct = async (req, res) => {
-    // console.log(req.query);
+ 
     
     try {
         const products = await productService.getAllProducts(req.query);
         
         
-        // console.log("products",products);
         
         return res.status(200).json({product:products});
     } catch (error) {

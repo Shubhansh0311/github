@@ -16,7 +16,6 @@ let userId=await jwtprovider.getUserIdFromToken(token);
 let user=await userService.getUserById(userId);
 
     req.user=user;
-// console.log("req.user",req.user);
 
 
 } catch (error) {

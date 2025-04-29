@@ -101,8 +101,7 @@ const getAllProducts = async (reqQuery) => {
     if (isNaN(pageNumber) || pageNumber <= 0) pageNumber = 1;
     if (isNaN(pageSize) || pageSize <= 0) pageSize = 10;
 
-    // console.log(reqQuery);
-
+ 
     let query = Product.find().populate("category");
 
 
@@ -164,7 +163,7 @@ const getAllProducts = async (reqQuery) => {
 
     // Count total products matching the query
     const totalProducts = await Product.countDocuments(query);
-    // console.log(totalProducts);
+ 
 
     // Pagination logic
     const skip = (pageNumber - 1) * pageSize;
@@ -175,7 +174,7 @@ const getAllProducts = async (reqQuery) => {
     
     // Calculate total pages for pagination
     const totalPages = Math.ceil(totalProducts / pageSize);
-    // console.log(totalPages);
+   
 
     // Return paginated products
 

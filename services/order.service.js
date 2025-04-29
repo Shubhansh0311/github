@@ -5,8 +5,6 @@ import OrderItems from "../modals/orderitems.modal.js";
 
 
   const createOrder = async (user, shippingAddress) => {
-    console.log("shippingAddress", shippingAddress);
-    console.log("user", user);
     
     
     let address;
@@ -33,7 +31,7 @@ import OrderItems from "../modals/orderitems.modal.js";
           address = new Address({ ...shippingAddress, user: user._id });
 
           let ad=(await address.save()).populate("shippingAddress");
-  console.log("Address created:", ad);
+ 
           // ✅ Step 4: Only push if address not already in user's address list
           if (!user.address.includes(address._id)) {
             user.address.push(address._id);

@@ -10,7 +10,7 @@ const createCart = async (req, res) => {
   }
 };
 const findUserCart = async (req, res) => {
-  // console.log("req.user", req.user);
+
 
   try {
     const userId = await req?.user?._id;
@@ -24,8 +24,7 @@ const findUserCart = async (req, res) => {
   }
 };
 const addCartItem = async (req, res) => {
-  //   console.log("req.user", req.body);
-  //   console.log("req.user_id",req.user._id);
+
 
   try {
     const userId = req.user._id;
@@ -43,7 +42,7 @@ const updateCartItem = async (req, res) => {
     const { cartItemId, quantity } = req.body;
 
     const cart = cartItemId;
-    // console.log("cartItemId", cartItemId);
+    
     const updatedCartItem = await cartService.updateCartItem(
       userId,
       cart,
@@ -66,7 +65,7 @@ const deleteCartItem = async (req, res) => {
   try {
     const userId = req.user._id;
     const { itemId } = req.body;
-    // console.log(itemId);
+  
 
     const deletedCartItem = await cartService.deleteCartItem(userId, itemId);
 

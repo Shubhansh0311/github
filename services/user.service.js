@@ -20,14 +20,11 @@ const createUser=async(userData)=>{
 
 const getUserById=async({userId})=>{
 
-// console.log(userId);
+
 
     try {
         const user = await User.findById(userId)
-    //    console.log("user",user);
-       
-        
-        // .populate('address');
+   
         if (!user) {
             throw new Error("User not found with******** userid ",userId);
         }
