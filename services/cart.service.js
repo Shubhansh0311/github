@@ -109,7 +109,6 @@ const updateCartItem = async (userId, cartItemId, quantity) => {
 
     // Save the updated cart item
     const updatedCartItem = await cartItem.save();
-// console.log("updatedCartItem", updatedCartItem);
 
     return updatedCartItem;
   } catch (error) {
@@ -117,12 +116,12 @@ const updateCartItem = async (userId, cartItemId, quantity) => {
   }
 };
 const deleteCartItem = async (userId, cartItemId) => {
-  // console.log(cartItemId);
+
   
   try {
     // Find the cart item by ID and ensure it belongs to the user
     const cartItem = await CartItems.findOne({_id: cartItemId, userId });
-// console.log("deleted",cartItem);
+
 
     if (!cartItem) {
       throw new Error("Cart item not found or does not belong to the user");

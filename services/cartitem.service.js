@@ -5,7 +5,7 @@ import userServices from "./user.service.js";
 
 const updateCartItem = async (userId, cartId, cartData) => {
  
-  // console.log(userId,cartId,cartData);
+  
   
   try { 
     const user = await userServices.getUserById({userId});
@@ -22,7 +22,7 @@ const updateCartItem = async (userId, cartId, cartData) => {
       
       
       cartItem.price = cartItem.quantity * cartItem.product.price;
-    //  console.log("test",cartItem.product.price);
+  
       cartItem.discountedPrice =cartItem.quantity * cartItem.product.price;
       const updateCartItem = await cartItem.save();
     

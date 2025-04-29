@@ -6,26 +6,26 @@ import authRouters from "./routes/auth.routes.js";
 import userRouters from "./routes/user.routes.js";
 import cartRouters from "./routes/cart.routes.js";
 import cartItemRoutes from "./routes/cartItem.routes.js";
-import reviewRouters from "./routes/review.routes.js";
-import ratingRouters from "./routes/rating.routes.js";
+// import reviewRouters from "./routes/review.routes.js";
+// import ratingRouters from "./routes/rating.routes.js";
 import orderRouters from "./routes/order.routes.js";
-import adminOrderRouters from "./routes/adminOrder.routes.js";
-import adminProductRouters from "./routes/adminProduct.routes.js";
+// import adminOrderRouters from "./routes/adminOrder.routes.js";
+// import adminProductRouters from "./routes/adminProduct.routes.js";
 import dbConnect from "./config/db.js";
 
 const app = express();
 
-// const corsOptions = {
-//     origin: 'https://eommerce-kappa.vercel.app', // Your React app URL
-//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Include OPTIONS
-//     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-//     credentials: true, // Include cookies in requests if needed
-// };
+const corsOptions = {
+    origin: 'https://eommerce-kappa.vercel.app', // Your React app URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Include OPTIONS
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    credentials: true, // Include cookies in requests if needed
+};
 
-// // Handle preflight requests
-// app.options('*', cors(corsOptions)); 
-// app.use(cors(corsOptions)); // Enable CORS with options
-// dotenv.config();
+// Handle preflight requests
+app.options('*', cors(corsOptions)); 
+app.use(cors(corsOptions)); // Enable CORS with options
+dotenv.config();
 app.use(express.json());
 app.use(cors())
 dbConnect()
