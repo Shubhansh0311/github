@@ -181,7 +181,7 @@ const getAllProducts = async (reqQuery) => {
     return { content: products, totalPages, currentPage: pageNumber };
 
   } catch (error) {
-    console.log(error);
+
     throw new Error(`Error fetching products: ${error.message || 'unknown error'}`);
   }
 };

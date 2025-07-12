@@ -5,8 +5,10 @@ const createOrder = async (req, res) => {
     const user=await req.user;
     
     const orderData = req.body;
-    const createdOrder = await orderService.createOrder(user,orderData);
-    return res.status(201).json({message:"order created successfully",createdOrder});
+    const createdOrder = await orderService.createOrder(user,orderData)
+
+    
+    return res.status(201).json({message:"order created successfully",id:createdOrder._id});
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -22,13 +24,15 @@ const findOrderById = async (req, res) => {
   }
 }
 const orderHistory=async(req,res)=>{
+  
+  
   try{
-    const user=await req.user;
-    const userId=user._id;
+    const userId = req.params.userId;
+    
     const orders=await orderService.orderHistory(userId);
     return res.status(200).json(orders);
   }catch(error){
-    return res.status(500).json({ message: error.message });
+    return res.status(500).json({ message: Error.captureStackTrace});
   }
 }
 

@@ -5,7 +5,7 @@ const SECRET_KEY="asfsadfewafawfwaefwefwweerwtyytufvsg"
 
 
 const generateToken=async(userId)=>{
-    const user = jwt.sign({userId},SECRET_KEY,{expiresIn:'48h'})
+    const user = jwt.sign({userId},SECRET_KEY,{expiresIn:'1h',})
     return user 
 
 }

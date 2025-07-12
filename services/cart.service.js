@@ -77,7 +77,7 @@ const addCartItem = async (userId, req) => {
       
       await cart.save();
      
-      return "Item added to the cart ";
+      return isProductPresent;
     }
   } catch (error) {
     throw new Error(error.message);

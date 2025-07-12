@@ -4,7 +4,8 @@ import productController from "../controller/product.controller.js"
 
 const productRouter = express.Router()
 
-productRouter.get('/',authenticate,productController.getAllProduct)
+// productRouter.get('/',authenticate,productController.getAllProduct)
+productRouter.get('/', productController.getAllProduct)
 productRouter.get('/id/:productId',authenticate,productController.findProductsById)
 
 export default {productRouter}

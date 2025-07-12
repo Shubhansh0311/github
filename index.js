@@ -11,10 +11,10 @@ import cartItemRoutes from "./routes/cartItem.routes.js";
 import orderRouters from "./routes/order.routes.js";
 // import adminOrderRouters from "./routes/adminOrder.routes.js";
 // import adminProductRouters from "./routes/adminProduct.routes.js";
+import paymentRouters from "./routes/payment.routes.js"
 import dbConnect from "./config/db.js";
 
 const app = express();
-
 const corsOptions = {
     origin: 'https://eommerce-kappa.vercel.app', // Your React app URL
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Include OPTIONS
@@ -63,6 +63,14 @@ app.use("/api/cart", cartRouters.cartRouter);
 // // cart items
 app.use("/api/cart_items", cartItemRoutes.cartItemRouter);
 
+
+// payments
+
+app.use("/api/payments",paymentRouters.paymentRouter)
+
+// payments
+
+app.use("/api/payments",paymentRouters.paymentRouter)
 // // review
 // app.use("/api/review", reviewRouters.reviewRouter);
 

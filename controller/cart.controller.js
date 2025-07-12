@@ -14,7 +14,9 @@ const findUserCart = async (req, res) => {
 
   try {
     const userId = await req?.user?._id;
-
+if(userId === undefined || userId === null) {
+      return res.status(400).json({ message: "User ID is not defined" });
+    }
     const cartItem = await cartService.findUserCart(userId);
     return res.status(200).json(cartItem);
   } catch (error) {

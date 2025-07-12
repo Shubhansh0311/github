@@ -5,13 +5,14 @@ import OrderItems from "../modals/orderitems.modal.js";
 
 
   const createOrder = async (user, shippingAddress) => {
+
     
     
     let address;
   
     try {
       // ✅ Step 1: Reuse existing address if _id is provided
-      if (shippingAddress._id) {
+      if (shippingAddress?._id) {
         address = await Address.findById(shippingAddress._id);
       } else {
         // ✅ Step 2: Try to find a matching address with the same fields
@@ -70,11 +71,11 @@ import OrderItems from "../modals/orderitems.modal.js";
         shippingAddress: address,
       });
   
-      const savedOrder = await newOrder.save();
+      const savedOrder = (await newOrder.save()).populate("user");
       return savedOrder;
   
     } catch (error) {
-      console.log(error.message);
+     
       throw new Error("Failed to create order: " + error.message);
     }
   };
@@ -158,7 +159,8 @@ const findOrderById = async (orderId) => {
 
 const orderHistory = async (userId) => {
   try {
-    const orders = await Order.find({ user: userId, orderStatus: "PLACED" })
+    const orderId="68001358dead68da72b5adaf"
+    const orders = await Order.find({ user:orderId, orderStatus: "PENDING" })
       .populate({
         path: "orderItems",
         populate: { path: "product" },
@@ -168,6 +170,8 @@ const orderHistory = async (userId) => {
     if (!orders || orders.length === 0) {
       throw new Error("No orders found for this user");
     }
+ 
+    
     return orders;
   } catch (error) {
     console.error(error.message);
