@@ -4,10 +4,16 @@ import orderService from "./order.service.js";
 const createPayment = async (orderId) => {
   try {
     const order = await orderService.findOrderById(orderId);
-
+    console.log("order payment details:", order.totalDiscountedPrice);
+    const amountInRupees = order.totalDiscountedPrice; // Convert to paise
+    console.log(amountInRupees*100);
+    
     const paymentLinkRequest = {
       // amount: order.totalPrice * 100||500,
-      amount:1000*100,
+      // amount:25000*100,
+      amount: Math.round(Number(amountInRupees * 100)),
+
+
       currency: "INR",
       customer: {
         name: `${order.user.firstName} ${order.user.lastName}`,
